@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* Matching Variables */
+:root {
+  --bg-color: #FFFBF2;
+  --primary: #3A4D39; 
+  --accent: #D25A39;
+  --gold: #C69C6D;
+  --text-dark: #1F2620;
+}
+
+.heroSection {
+  background-color: var(--bg-color);
+  width: 100%;
+  min-height: 85vh; /* Takes up most of the screen */
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Split layout */
+  gap: 4rem;
+  align-items: center;
+}
+
+/* --- LEFT TEXT CONTENT --- */
+.textContent {
+  z-index: 2;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.badge {
+  display: inline-block;
+  background-color: rgba(210, 90, 57, 0.1);
+  color: var(--accent);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  line-height: 1.1;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.highlight {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+}
+
+/* CTA Buttons */
+.ctaGroup {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.primaryBtn {
+  background-color: var(--primary);
+  color: #fff;
+  padding: 1rem 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.primaryBtn:hover {
+  background-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(210, 90, 57, 0.2);
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 1rem 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+.secondaryBtn:hover {
+  background-color: rgba(58, 77, 57, 0.05);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.playIcon {
+  font-size: 1.2rem;
+}
+
+/* Trust Badges */
+.trustBadges {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.trustItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.trustNumber {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.trustLabel {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.separator {
+  width: 1px;
+  height: 30px;
+  background-color: rgba(0,0,0,0.1);
+}
+
+/* --- RIGHT IMAGE CONTENT --- */
+.imageContent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1.1;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px; /* Arch shape */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+/* Background Circle Decoration */
+.bgCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background-color: rgba(198, 156, 109, 0.1); /* Gold tint */
+  border-radius: 50%;
+  z-index: 0;
+  animation: pulse 8s infinite ease-in-out;
+}
+
+/* Floating Cards */
+.floatCard {
+  position: absolute;
+  background: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--primary);
+  z-index: 3;
+  white-space: nowrap;
+  animation: float 4s ease-in-out infinite;
+}
+
+.card1 {
+  top: 15%;
+  right: -20px;
+  animation-delay: 0s;
+}
+
+.card2 {
+  bottom: 20%;
+  left: -30px;
+  animation-delay: 2s;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.5; }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .title { font-size: 3rem; }
+  .container { gap: 2rem; padding: 0 2rem; }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Stack vertically */
+    text-align: center;
+    padding-top: 1rem;
+  }
+  
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 2; /* Image first on mobile? Or text first? Let's keep Text first for H1 SEO */
+  }
+
+  .description { max-width: 100%; }
+  
+  .ctaGroup { justify-content: center; width: 100%; }
+  
+  .trustBadges {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .imageContent {
+    order: 1;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .imageWrapper {
+    max-width: 300px; /* Smaller image on mobile */
+  }
+  
+  .card1 { right: -10px; }
+  .card2 { left: -10px; }
+  
+  .title { font-size: 2.5rem; }
+}

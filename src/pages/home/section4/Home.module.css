@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-color: #FFFBF2;
+  --card-bg: #FFFFFF;
+  --primary: #3A4D39; 
+  --accent: #D25A39;
+  --gold: #C69C6D;
+  --text-dark: #1F2620;
+  --text-gray: #6B7068;
+}
+
+.section {
+  background-color: var(--bg-color);
+  padding: 6rem 0;
+  position: relative;
+}
+
+/* Optional: Background texture or pattern can be added here */
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- HEADER --- */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 700px;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: var(--primary);
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.separator {
+  width: 60px;
+  height: 3px;
+  background-color: var(--gold);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* --- GRID --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+/* --- CARD --- */
+.card {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(58, 77, 57, 0.08);
+  border-color: rgba(198, 156, 109, 0.3); /* Gold border on hover */
+}
+
+.quoteIcon {
+  font-size: 2rem;
+  color: rgba(58, 77, 57, 0.1); /* Very light primary color */
+  margin-bottom: 1.5rem;
+}
+
+.reviewText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  font-style: italic;
+  margin-bottom: 2rem;
+  flex-grow: 1; /* Pushes profile to bottom */
+}
+
+.rating {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.star {
+  fill: var(--gold);
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+/* User Profile */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding-top: 1.5rem;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--bg-color);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.userLocation {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* --- STATS ROW --- */
+.statsRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(58, 77, 57, 0.1);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.statNum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.statDivider {
+  width: 1px;
+  height: 50px;
+  background-color: rgba(0,0,0,0.1);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .title { font-size: 2.5rem; }
+  .grid { gap: 1.5rem; }
+  .card { padding: 2rem; }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cols on tablet */
+  }
+  
+  /* Hide 3rd review or make it scrollable? 
+     For simplicity, hiding the last one on tablet 
+     unless we switch to carousel logic. 
+     Better: Stack them or keep 2. Let's stack for mobile logic below.
+  */
+  .card:last-child {
+    display: none; /* Hide 3rd card for perfect 2-grid */
+  }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 4rem 0; }
+  .container { padding: 0 1.5rem; }
+
+  .title { font-size: 2.2rem; }
+  
+  .grid {
+    grid-template-columns: 1fr; /* Stack 1 col */
+    margin-bottom: 3rem;
+  }
+  
+  .card:last-child {
+    display: flex; /* Show all on mobile stack */
+  }
+
+  .statsRow {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .statDivider {
+    width: 50px;
+    height: 1px; /* Horizontal divider on mobile */
+  }
+}

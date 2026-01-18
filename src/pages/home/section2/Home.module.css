@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* Matching Variables */
+:root {
+  --bg-color: #FFFBF2;
+  --card-bg: #FFFFFF;
+  --primary: #3A4D39; 
+  --accent: #D25A39;
+  --gold: #C69C6D;
+  --text-dark: #1F2620;
+  --text-gray: #6B7068;
+}
+
+.section {
+  background-color: var(--bg-color); /* Seamless continuation */
+  padding: 5rem 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+/* --- HEADER --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3.5rem;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: var(--primary);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.viewAllBtn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--primary);
+  padding-bottom: 3px;
+  transition: all 0.3s;
+}
+
+.viewAllBtn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* --- GRID --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 2rem;
+}
+
+/* --- CARD --- */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+  transition: all 0.4s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(58, 77, 57, 0.1);
+}
+
+/* Image Area */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1; /* Square images */
+  overflow: hidden;
+  background-color: #f8f8f8;
+}
+
+.productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover .productImg {
+  transform: scale(1.08);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 0.7rem;
+  font-family: 'Montserrat', sans-serif;
+  padding: 4px 10px;
+  border-radius: 4px;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Hover Overlay Icons */
+.overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.actionBtn {
+  background: #fff;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+}
+
+.actionBtn:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* Details Area */
+.details {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.starIcon {
+  fill: var(--gold);
+}
+
+.reviewCount {
+  color: #999;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.productName {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 0.2rem 0;
+}
+
+.productTagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+
+.bottomRow {
+  margin-top: auto; /* Pushes to bottom */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding-top: 1rem;
+}
+
+.price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.cartBtn {
+  background: none;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s;
+}
+
+.cartBtn:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 items */
+  }
+  .card:nth-last-child(1) {
+    display: none; /* Hide 4th item on tablet to keep grid nice */
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 items */
+  }
+  .card:nth-last-child(1) { display: flex; } /* Show all again */
+}
+
+@media (max-width: 600px) {
+  .container { padding: 0 1.5rem; }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .title { font-size: 2.2rem; }
+  
+  .grid {
+    grid-template-columns: 1fr; /* 1 item stack */
+    gap: 1.5rem;
+  }
+}

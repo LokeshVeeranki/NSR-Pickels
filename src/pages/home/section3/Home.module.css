@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* Colors consistent with previous files */
+:root {
+  --bg-warm: #F4EFE6; /* Warm Beige Background */
+  --primary: #3A4D39; 
+  --accent: #D25A39;
+  --gold: #C69C6D;
+  --text-dark: #1F2620;
+  --text-gray: #555;
+}
+
+.section {
+  background-color: var(--bg-warm);
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* --- LEFT IMAGE COLUMN --- */
+.imageColumn {
+  position: relative;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  /* Double border effect for vintage look */
+  padding: 15px;
+  border: 1px solid rgba(58, 77, 57, 0.2);
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transition: transform 0.5s ease;
+}
+
+.imageWrapper:hover .mainImage {
+  transform: scale(1.02);
+}
+
+/* Vintage Circular Stamp */
+.stampBadge {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 4px solid var(--bg-warm);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transform: rotate(-10deg);
+  z-index: 2;
+}
+
+.stampBadge span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.stampBadge strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+/* --- RIGHT CONTENT COLUMN --- */
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem;
+  color: var(--primary);
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.accent {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-gray);
+  margin-bottom: 3rem;
+  max-width: 90%;
+}
+
+/* Feature Grid (The 3 Points) */
+.featureGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.featureItem {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.iconBox {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(58, 77, 57, 0.1); /* Light Primary */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover .iconBox {
+  background-color: var(--primary);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.featureText h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.4rem 0;
+}
+
+.featureText p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Button */
+.learnMoreBtn {
+  align-self: flex-start;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 4px;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.learnMoreBtn:hover {
+  color: var(--accent);
+  padding-right: 10px; /* Subtle slide effect */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .title { font-size: 2.5rem; }
+  .container { gap: 3rem; padding: 0 2rem; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 4rem 0; }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* Move image below text on mobile? Or above? 
+     Usually text first is better for context, 
+     but image first is better for visual hook.
+     Let's keep image top. */
+  
+  .imageWrapper {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .stampBadge {
+    width: 80px;
+    height: 80px;
+    right: -10px;
+    bottom: -20px;
+  }
+  
+  .stampBadge strong { font-size: 1.4rem; }
+
+  .contentColumn {
+    text-align: left; /* Keep left alignment for readability */
+  }
+  
+  .title { font-size: 2.2rem; }
+  
+  .description { max-width: 100%; }
+
+  .featureItem {
+    gap: 1rem;
+  }
+}

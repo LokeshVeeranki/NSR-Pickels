@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* Variables reused from Header for consistency */
+:root {
+  --bg-color: #FFFBF2;
+  --primary: #3A4D39; /* Deep Green */
+  --primary-dark: #2A3829; /* Darker Green for footer bg */
+  --accent: #D25A39; /* Rust/Red */
+  --gold: #C69C6D;
+  --text-light: #F4EFE6;
+  --text-muted: #B0B8AE;
+}
+
+.footer {
+  width: 100%;
+  background-color: var(--primary);
+  color: var(--text-light);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* =========================================
+   1. NEWSLETTER SECTION
+   ========================================= */
+.newsletterSection {
+  background-color: var(--accent);
+  padding: 4rem 0;
+  position: relative;
+}
+
+/* Optional: Subtle texture pattern overlay could go here */
+
+.newsletterContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.newsDesc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.newsForm {
+  display: flex;
+  width: 100%;
+  gap: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 5px;
+}
+
+.newsForm input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  padding: 10px 0;
+  outline: none;
+}
+
+.newsForm input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.newsForm button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.3s;
+}
+
+.newsForm button:hover {
+  opacity: 0.8;
+}
+
+/* =========================================
+   2. MAIN FOOTER LINKS
+   ========================================= */
+.mainFooter {
+  padding: 5rem 0 3rem 0;
+  background-color: var(--primary-dark);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 4rem;
+}
+
+/* Brand Column */
+.colBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.logoText {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.logoAccent {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.brandBio {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 300px;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.socialIcons a {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.socialIcons a:hover {
+  color: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* Link Columns */
+.colTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.colLinks ul, .colContact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.colLinks li {
+  margin-bottom: 0.8rem;
+}
+
+.colLinks a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.colLinks a:hover {
+  color: var(--gold);
+  padding-left: 5px;
+}
+
+/* Contact Column */
+.colContact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.colContact a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.colContact a:hover {
+  color: var(--gold);
+}
+
+.icon {
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   3. BOTTOM BAR
+   ========================================= */
+.bottomBar {
+  background-color: #232F22; /* Slightly darker than primary-dark */
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #6B756A;
+}
+
+.madeWith {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   4. RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsletterContent {
+    padding: 0 1rem;
+  }
+  
+  .newsTitle {
+    font-size: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .colBrand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .brandBio {
+    margin: 0 auto;
+  }
+  
+  .colLinks, .colContact {
+    text-align: center;
+  }
+
+  .colContact li {
+    justify-content: center;
+  }
+
+  .bottomContent {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+}

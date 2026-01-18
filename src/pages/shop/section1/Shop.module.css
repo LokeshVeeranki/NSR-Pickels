@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #FFFBF2;
+  --card-bg: #FFFFFF;
+  --primary: #3A4D39; 
+  --accent: #D25A39;
+  --gold: #C69C6D;
+  --text-dark: #1F2620;
+  --text-gray: #6B7068;
+  --border: rgba(58, 77, 57, 0.1);
+}
+
+.pageWrapper {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  padding: 8rem 0 6rem 0; /* Header spacing */
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --- HEADER --- */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-gray);
+}
+
+/* --- TOOLBAR --- */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.mobileFilterBtn {
+  display: none; /* Hidden on desktop */
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid var(--primary);
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: var(--primary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.resultCount {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-gray);
+}
+
+.sortWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+}
+
+.sortSelect {
+  background: transparent;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  outline: none;
+}
+
+/* --- MAIN LAYOUT --- */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Sidebar | Grid */
+  gap: 3rem;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebarHeader {
+  display: none; /* Mobile only */
+}
+
+.filterGroup {
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 1.5rem;
+}
+
+.filterGroup:last-child {
+  border-bottom: none;
+}
+
+.filterTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+/* Category List */
+.catList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.catList li {
+  margin-bottom: 0.5rem;
+}
+
+.catList button {
+  background: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.catList button:hover, .activeCat {
+  color: var(--accent) !important;
+  font-weight: 600;
+  padding-left: 5px; /* Slide effect */
+}
+
+/* Spice Checkboxes */
+.spiceOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.spiceVisual {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.spiceVisual svg {
+  color: var(--accent);
+}
+
+/* Price Slider */
+.rangeSlider {
+  width: 100%;
+  accent-color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.rangeLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* --- PRODUCT GRID --- */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(58, 77, 57, 0.08);
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 1;
+  background-color: #f4f4f4;
+  overflow: hidden;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.card:hover .imageWrapper img {
+  transform: scale(1.08);
+}
+
+/* Out of Stock visual */
+.faded {
+  opacity: 0.6;
+  filter: grayscale(100%);
+}
+
+.outOfStock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+/* Overlay Actions */
+.overlayActions {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateX(50px); /* Hidden initially */
+  transition: transform 0.3s ease;
+}
+
+.card:hover .overlayActions {
+  transform: translateX(0);
+}
+
+.overlayActions button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+}
+
+.overlayActions button:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Card Info */
+.cardInfo {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardCat {
+  font-size: 0.7rem;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.cardName {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin: 0 0 5px 0;
+  line-height: 1.2;
+}
+
+.miniSpice {
+  display: flex;
+  gap: 2px;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.activeChili { color: var(--accent); }
+.inactiveChili { color: #ddd; }
+
+.cardFooter {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.addBtn, .notifyBtn {
+  background: none;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.addBtn:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.notifyBtn {
+  border-color: var(--text-gray);
+  color: var(--text-gray);
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-gray);
+}
+
+.noResults button {
+  margin-top: 1rem;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .layout {
+    display: block; /* Remove sidebar from grid flow */
+  }
+
+  .mobileFilterBtn {
+    display: flex;
+  }
+
+  .resultCount {
+    display: none;
+  }
+
+  /* Mobile Drawer Styles for Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background: #fff;
+    z-index: 1100;
+    padding: 2rem;
+    box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+  }
+
+  .sidebar.mobileOpen {
+    transform: translateX(0);
+  }
+
+  .sidebarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+  }
+
+  .sidebarHeader button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 600px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .overlayActions {
+    transform: translateX(0);
+    position: static;
+    flex-direction: row;
+    margin-top: -40px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    z-index: 5;
+  }
+}

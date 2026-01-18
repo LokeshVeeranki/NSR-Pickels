@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-color: #FFFBF2;
+  --bg-translucent: rgba(255, 251, 242, 0.95);
+  --primary: #3A4D39;
+  --accent: #D25A39;
+  --gold: #C69C6D;
+  --text-dark: #1F2620;
+  --text-light: #6B7068;
+
+  --header-h: 90px;
+  --header-h-scroll: 70px;
+  --anno-h: 36px;
+}
+
+/* =========================================
+   1. LAYOUT & WRAPPERS
+   ========================================= */
+
+.fixedWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.announcementBar {
+  height: var(--anno-h);
+  background-color: var(--primary);
+  color: #fff;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: margin-top 0.4s ease, opacity 0.4s ease;
+  overflow: hidden;
+}
+
+.header {
+  height: var(--header-h);
+  background: var(--bg-color);
+  border-bottom: 1px solid transparent;
+  transition: all 0.4s ease;
+  width: 100%;
+  position: relative;
+}
+
+.headerSpacer {
+  height: calc(var(--header-h) + var(--anno-h));
+}
+
+/* =========================================
+   2. SCROLLED STATE
+   ========================================= */
+
+.scrolledMode .announcementBar {
+  margin-top: calc(var(--anno-h) * -1);
+  opacity: 0;
+}
+
+.scrolledMode .header {
+  height: var(--header-h-scroll);
+  background: var(--bg-translucent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(58, 77, 57, 0.08);
+  border-bottom: 1px solid rgba(58, 77, 57, 0.1);
+}
+
+.scrolledMode .logoContainer {
+  transform: translateX(-50%) scale(0.9);
+}
+
+/* =========================================
+   3. NAVIGATION & CONTENT
+   ========================================= */
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* LOGO */
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+  z-index: 10;
+  padding: 0 1rem;
+}
+
+.logoText {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.logoAccent {
+  color: var(--accent);
+  /* font-style: italic; */
+}
+
+.logoTagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* DESKTOP NAV */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navLink {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+  transition: color 0.3s;
+  padding: 5px 0;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1.5px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent);
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navLink:hover {
+  color: var(--accent);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE NAVLINK (React Router) */
+.active {
+  color: var(--accent);
+}
+
+.active::after {
+  width: 100%;
+}
+
+/* ACTIONS & ICONS */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.iconGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--primary);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s, color 0.2s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconBtn:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.cartBadge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: var(--accent);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-color);
+}
+
+/* =========================================
+   4. SEARCH OVERLAY
+   ========================================= */
+
+.searchOverlay {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--bg-color);
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  transform: translateY(-20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+  z-index: 900;
+}
+
+.searchOverlay.searchActive {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.searchContainer {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.searchContainer input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  background: transparent;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  padding: 10px 0;
+  color: var(--primary);
+  outline: none;
+}
+
+.searchContainer input::placeholder {
+  color: rgba(58, 77, 57, 0.3);
+}
+
+.closeSearch {
+  position: absolute;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.closeSearch:hover {
+  color: var(--accent);
+}
+
+/* =========================================
+   5. MOBILE MENU
+   ========================================= */
+
+.mobileToggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  z-index: 20;
+}
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 38, 32, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1002;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.mobileOverlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileDrawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 85%;
+  max-width: 350px;
+  height: 100vh;
+  background: var(--bg-color);
+  z-index: 1003;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileDrawer.open {
+  transform: translateX(0);
+}
+
+.drawerHeader {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawerLogo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+.mobileScrollArea {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.mobileLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobileLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+  transition: all 0.2s;
+}
+
+.mobileLink:hover,
+.mobileLink.active {
+  background-color: #F4EFE6;
+  padding-left: 2rem;
+  color: var(--accent);
+}
+
+/* =========================================
+   6. RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: block;
+  }
+
+  .logoText {
+    font-size: 1.8rem;
+  }
+
+  .logoTagline {
+    display: none;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hideOnMobile {
+    display: none;
+  }
+
+  .logoText {
+    font-size: 1.5rem;
+  }
+
+  .announcementBar {
+    font-size: 0.65rem;
+  }
+}

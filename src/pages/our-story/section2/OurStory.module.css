@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-color: #FFFBF2;
+  --primary: #3A4D39;
+  --accent: #D25A39;
+  --gold: #C69C6D;
+  --text-dark: #2A2F2B;
+  --text-gray: #555;
+}
+
+.section {
+  background-color: var(--bg-color);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --- HEADER --- */
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin: 0;
+}
+
+.headerLine {
+  width: 60px;
+  height: 2px;
+  background-color: var(--gold);
+  margin: 1.5rem auto 0;
+}
+
+/* --- TIMELINE CONTAINER --- */
+.timeline {
+  position: relative;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+/* The Central Vertical Line */
+.line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: rgba(198, 156, 109, 0.3); /* Gold with opacity */
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* --- ROW (Layout for each event) --- */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6rem;
+  position: relative;
+  width: 100%;
+}
+
+/* Right Aligned (Even items) */
+.right {
+  flex-direction: row-reverse; /* Flips content/image sides */
+}
+
+/* Left Aligned (Default/Odd items) */
+/* .left is implied standard flex direction, but we structure specifically below */
+
+.content {
+  width: 42%;
+  position: relative;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(58, 77, 57, 0.05);
+  border: 1px solid rgba(0,0,0,0.02);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.row:hover .content {
+  transform: translateY(-5px);
+  border-color: rgba(198, 156, 109, 0.3);
+}
+
+.imageWrapper {
+  width: 42%;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: sepia(15%);
+}
+
+.row:hover .image {
+  transform: scale(1.05);
+  filter: sepia(0%);
+}
+
+/* --- CENTRAL NODE (The Icon Circle) --- */
+.node {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 1.2rem;
+  z-index: 5;
+  box-shadow: 0 0 0 8px var(--bg-color); /* Creates "gap" in the line */
+}
+
+/* --- TEXT TYPOGRAPHY --- */
+.year {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: rgba(58, 77, 57, 0.1); /* Very light primary */
+  position: absolute;
+  top: -25px;
+  right: 20px;
+  line-height: 1;
+}
+
+.eventTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+@media (max-width: 900px) {
+  /* On tablets/mobile, move everything to one side */
+  .line {
+    left: 20px; /* Move line to left side */
+    transform: none;
+  }
+
+  .row {
+    flex-direction: column; /* Stack vertically */
+    align-items: flex-start;
+    margin-bottom: 4rem;
+    padding-left: 50px; /* Make space for line */
+    position: relative;
+  }
+  
+  .right {
+    flex-direction: column; /* No reverse on mobile */
+  }
+
+  .node {
+    left: 20px; /* Align node with line */
+    transform: translateX(-50%);
+  }
+
+  .content {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    height: 200px;
+  }
+
+  .year {
+    font-size: 2.5rem;
+    top: -15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title { font-size: 2.5rem; }
+  .header { margin-bottom: 3rem; }
+  
+  .content {
+    padding: 1.2rem;
+  }
+}
